@@ -1,4 +1,4 @@
-import {Dependencies} from "./dependencies.ts";
+import {Dependencies} from "@src/app/dependencies.ts";
 
 export class App {
   public dependencies: Dependencies;

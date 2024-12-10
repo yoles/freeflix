@@ -1,5 +1,5 @@
 import React, {createContext, useContext} from "react";
-import {Dependencies} from "../dependencies.ts";
+import {Dependencies} from "@src/app/dependencies";
 
 const DependenciesContext = createContext<Dependencies>(null as any);
 

@@ -1,7 +1,7 @@
-import { app } from "../main.ts";
+import { app } from "@src/app/main.ts";
 import {DependenciesProvider} from "./DependenciesProvider.tsx";
 import {BrowserRouter} from "react-router-dom";
-import Router from "../../routes";
+import Router from "@src/routes";
 
 export const AppWrapper = () => {
   return (

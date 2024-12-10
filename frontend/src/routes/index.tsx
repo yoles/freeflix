@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import {WelcomePage} from "../home/Welcome.tsx";
+import {WelcomePage} from "@src/home/Welcome.tsx";
 
 export default function Router() {
   return (
