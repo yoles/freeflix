@@ -1,11 +1,11 @@
 import "./styles/index.css";
-import venom from '../assets/images/venom_bg.jpg'
-import venomTitle from '../assets/images/venom_title.png'
-import terrifer from '../assets/images/terrifier_3.jpg';
-import alien from '../assets/images/alien.jpg';
-import noEntries from '../assets/images/no_entries.jpg';
-import apocalyspeZ from '../assets/images/apocalypse_z.jpg';
-import theSubstance from '../assets/images/the_substance.jpg';
+import venom from '@src/assets/images/venom_bg.jpg'
+import venomTitle from '@src/assets/images/venom_title.png'
+import terrifer from '@src/assets/images/terrifier_3.jpg';
+import alien from '@src/assets/images/alien.jpg';
+import noEntries from '@src/assets/images/no_entries.jpg';
+import apocalyspeZ from '@src/assets/images/apocalypse_z.jpg';
+import theSubstance from '@src/assets/images/the_substance.jpg';
 
 
 export function WelcomePage() {
