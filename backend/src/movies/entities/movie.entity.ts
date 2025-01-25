@@ -3,7 +3,7 @@ export class Movie {
     public id: number,
     public title: string,
     public overview: string,
-    public posterPath: string,
+    public imageURL: string,
     public releaseDate: Date,
     public voteAverage: number,
   ) {}
