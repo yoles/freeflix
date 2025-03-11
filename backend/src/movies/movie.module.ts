@@ -3,6 +3,7 @@ import { MovieController } from './controllers/movie.controller';
 import { I_MOVIE_REPOSITORY, IMovieRepository } from './ports/movie.repository';
 import { StubMovieRepository } from './adapters/movies.stub';
 import { GetTrendingMovies } from './usecases/get-trending-movies.usecase';
+import { MovieRepository } from './adapters/movies.tmdb';
 
 @Module({
   imports: [],
@@ -10,7 +11,9 @@ import { GetTrendingMovies } from './usecases/get-trending-movies.usecase';
   providers: [
     {
       provide: I_MOVIE_REPOSITORY,
-      useClass: StubMovieRepository,
+      // useClass: StubMovieRepository,
+      /**** System ****/
+      useClass: MovieRepository,
     },
     {
       provide: GetTrendingMovies,

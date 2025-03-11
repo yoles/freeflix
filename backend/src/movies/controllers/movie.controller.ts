@@ -9,6 +9,7 @@ export class MovieController {
 
     @Get('/trend')
     async getTrending() {
-        return this.useCase.execute();
+        const movies = await this.useCase.execute();
+        return movies.map((movie) => movie.props);
     }
 }
