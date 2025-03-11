@@ -1,10 +1,16 @@
+export type MovieProps = {
+  id: number;
+  title: string;
+  overview: string;
+  imageURL: string;
+  releaseDate: Date;
+  voteAverage: number;
+}
+
 export class Movie {
-  constructor(
-    public id: number,
-    public title: string,
-    public overview: string,
-    public imageURL: string,
-    public releaseDate: Date,
-    public voteAverage: number,
-  ) {}
+  public props: MovieProps;
+  
+  constructor(props: MovieProps) {
+    this.props = props;
+  }
 }

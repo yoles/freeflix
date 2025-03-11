@@ -9,3 +9,7 @@ export class GetTrendingMovies {
     return this.movieRepository.getTrends();
   }
 }
+
+
+
+
