@@ -23,6 +23,7 @@ describe('As a user, i get the trending movies list', () => {
         expect.objectContaining({
           id: expect.any(Number),
           title: expect.any(String),
+          originalTitle: expect.any(String),
           releaseDate: expect.any(String),
           voteAverage: expect.any(Number),
           overview: expect.any(String),

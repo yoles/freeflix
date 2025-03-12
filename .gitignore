@@ -29,3 +29,4 @@ makefile
 init.sh
 start.sh
 .env
+todo.md
