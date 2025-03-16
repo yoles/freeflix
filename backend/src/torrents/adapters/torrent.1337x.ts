@@ -1,12 +1,11 @@
 import puppeteer, {Browser, Page} from "puppeteer";
-import { MovieTorrent } from "../entities/movie.entity";
-import { ITorrentScraper } from "../ports/torrent.repository";
-import { log } from "console";
+import { Torrent } from "@torrents/entities/torrent.entity";
+import { ITorrentScraper } from "@torrents/ports/torrent.repository";
 
 export class X1337TorrentScraper implements ITorrentScraper {
   private readonly BASE_URL = 'https://1337x.to/search';
 
-  async searchTorrents(movieTitle: string): Promise<MovieTorrent[]> {
+  async searchTorrents(movieTitle: string): Promise<Torrent[]> {
     let browser: Browser;
     try {
       browser = await puppeteer.launch({
@@ -29,7 +28,7 @@ export class X1337TorrentScraper implements ITorrentScraper {
     }
   }
 
-  private async extractTorrentLinks(page: Page): Promise<MovieTorrent[]> {
+  private async extractTorrentLinks(page: Page): Promise<Torrent[]> {
     const torrents = await page.evaluate(() => {
       const items = document.querySelectorAll('table.table-list tbody tr');
       return Array.from(items).map(item => {
@@ -59,7 +58,7 @@ export class X1337TorrentScraper implements ITorrentScraper {
       });
     });
     return torrents.map(
-      torrent => new MovieTorrent({...torrent, url: this.BASE_URL + torrent.url})
+      torrent => new Torrent({...torrent, url: this.BASE_URL + torrent.url})
     );
   }
 }

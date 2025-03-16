@@ -17,5 +17,6 @@ export default {
   moduleNameMapper: {
     "@src/(.*)$": "<rootDir>/$1",
     "@movies/(.*)$": "<rootDir>/movies/$1",
+    "@torrents/(.*)$": "<rootDir>/torrents/$1",
   },
 };

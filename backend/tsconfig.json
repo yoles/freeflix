@@ -13,6 +13,7 @@
     "paths": {
       "@src/*": ["src/*"],
       "@movies/*": ["src/movies/*"],
+      "@torrents/*": ["src/torrents/*"],
     },
     "incremental": true,
     "skipLibCheck": true,

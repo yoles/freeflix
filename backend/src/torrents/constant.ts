@@ -1,0 +1,1 @@
+export const BASE_1337x_URL = "https://1337x.to";
