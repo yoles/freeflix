@@ -1,7 +1,7 @@
 import * as request from 'supertest';
 import {TestApp} from "@src/tests/utils/test-app";
 
-describe('As a user, i get the movie torrent links', () => {
+describe('As a user, i get the torrent links', () => {
   let app: TestApp;
 
   beforeEach(async () => {
@@ -15,7 +15,7 @@ describe('As a user, i get the movie torrent links', () => {
 
   describe('get movies torrent links', () => {
     it('should return torrent links of a movie', async () => {
-      const response = await request(app.getHttpServer()).get(`/movies/super-movie/torrents`);    
+      const response = await request(app.getHttpServer()).get("/torrents/search/super-movie");    
       const movieTorrents = response.body;
       const movieTorrent = movieTorrents[0];
   
@@ -31,7 +31,7 @@ describe('As a user, i get the movie torrent links', () => {
     });
 
     it('should throw an error if the movie is not found', async () => {
-      const response = await request(app.getHttpServer()).get(`/movies/not-found/torrents`);
+      const response = await request(app.getHttpServer()).get("/torrents/search/not-found");
       expect(response.status).toBe(404);
     });
   });

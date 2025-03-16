@@ -1,5 +1,5 @@
-import { MovieTorrent } from '@movies/entities/movie.entity';
 import { ITorrentScraper } from '../ports/torrent.repository';
+import { Torrent } from '../entities/torrent.entity';
 
 
 export class GetTorrentLinks {
@@ -7,7 +7,7 @@ export class GetTorrentLinks {
     private readonly torrentScraper: ITorrentScraper
   ) {}
 
-  async execute(movieTitle: string): Promise<MovieTorrent[]> {
+  async execute(movieTitle: string): Promise<Torrent[]> {
     return this.torrentScraper.searchTorrents(movieTitle);
   }
 }
