@@ -1,8 +1,8 @@
 import { HttpError } from '../../shared/exception';
 
-const defaultMessage = 'Movie not found';
+const defaultMessage = 'Torrent links not found';
 
-export class MovieNotFoundException extends HttpError {
+export class TorrentLinksNotFoundException extends HttpError {
   constructor(message: string = defaultMessage) {
     super(message, 404);
   }
