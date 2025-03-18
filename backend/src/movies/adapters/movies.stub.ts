@@ -46,4 +46,22 @@ export class StubMovieRepository implements IMovieRepository {
             runtime: 120
         });
     }
+
+    async search(title: string): Promise<Movie[]> {
+        if (title === "not-found") {
+            return [];
+        }
+        return [
+            new Movie({
+                id: 1,
+                title: "Movie 1",
+                originalTitle: "Original Movie 1",
+                overview: "Overview 1",
+                imageURL: "/path1.jpg",
+                releaseDate: new Date(2025, 1, 1),
+                voteAverage: 8.5,
+                adult: false
+            })
+        ];
+    }
 }
