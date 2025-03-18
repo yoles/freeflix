@@ -5,10 +5,10 @@ export type TorrentProps = {
   seeds: number;
   leeches: number;
   size: string;
-  magnetLink?: MagnetLink | null;
+  magnetLink?: string | null;
 }
 
-export class Torrent {
+export class TorrentMetadata {
   public props: TorrentProps;
 
   constructor(props: TorrentProps) {
@@ -16,6 +16,8 @@ export class Torrent {
   }
 }
 
-export class MagnetLink {
-  constructor(public url: string) {}
+export type TorrentStream = {
+  infoHash: string;
+  name: string;
+  size: number;
 }

@@ -4,6 +4,7 @@ import { I_TORRENT_SCRAPER } from './ports/torrent.repository';
 import { GetTorrentLinks } from './usecases/get-torrent-links.usecase';
 import { X1337TorrentScraper } from './adapters/torrent.1337x';
 import { TorrentController } from './controllers/torrent.controller';
+import { GetMagnetLink } from './usecases/get-magnet-link.usecase';
 
 @Module({
   imports: [],
@@ -19,6 +20,11 @@ import { TorrentController } from './controllers/torrent.controller';
       provide: GetTorrentLinks,
       inject: [I_TORRENT_SCRAPER],
       useFactory: (torrentScraper) => new GetTorrentLinks(torrentScraper),
+    },
+    {
+      provide: GetMagnetLink,
+      inject: [I_TORRENT_SCRAPER],
+      useFactory: (torrentScraper) => new GetMagnetLink(torrentScraper),
     }
   ],
   exports: [I_TORRENT_SCRAPER],
