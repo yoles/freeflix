@@ -1,0 +1,58 @@
+version: "3.9"
+
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+    restart: always
+    env_file: .env
+    ports:
+      - "${FRONTEND_PORT}:${FRONTEND_PORT}"
+    volumes:
+      - "./frontend:/app"
+    networks:
+      - bp-network
+    command: "npm run dev -- --host 0.0.0.0"
+
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+    restart: always
+    env_file: .env
+    volumes:
+      - ./backend:/svr/app
+      - /svr/app/node_modules
+    networks:
+      - bp-network
+    ports:
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
+    depends_on:
+      - db
+    links:
+      - db
+  db:
+    image: postgres:17-alpine
+    restart: always
+    container_name: db
+    env_file:
+      - .env
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - bp-network
+
+volumes:
+  pgdata:
+
+networks:
+  bp-network:
+    driver: bridge
